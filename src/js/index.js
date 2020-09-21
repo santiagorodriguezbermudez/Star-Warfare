@@ -1,11 +1,32 @@
-import 'phaser';
+import Phaser from 'phaser';
 
-import { SimpleScene } from './scenes/simple-scene';
+function preload() {
+  this.load.image('cover_pic', '../assets/bnfv.png');
+}
 
-const gameConfig = {
-  width: 680,
-  height: 400,
-  scene: SimpleScene,
+function create() {
+  this.add.image(500, 300, 'cover_pic');
+}
+
+function update() {
+}
+
+const config = {
+  type: Phaser.AUTO,
+  width: 1000,
+  height: 600,
+  physics: {
+    default: 'arcade',
+    arcade: {
+      gravity: { y: 300 },
+      debug: false,
+    },
+  },
+  scene: {
+    preload,
+    create,
+    update,
+  },
 };
 
-new Phaser.Game(gameConfig);
+const game = new Phaser.Game(config);
