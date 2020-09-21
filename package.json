@@ -1,0 +1,21 @@
+{
+  "name": "starwarfare",
+  "version": "1.0.0",
+  "description": "Arcade game developed with JavaScript and Phaser 3",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test_watch": "jest --watch",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santiagorodriguezbermudez/starwarfare.git"
+  },
+  "author": "Santiago Rodriguez B.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/santiagorodriguezbermudez/starwarfare/issues"
+  },
+  "homepage": "https://github.com/santiagorodriguezbermudez/starwarfare#readme"
+}
