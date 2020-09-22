@@ -6436,4 +6436,4 @@ t.exports={Utils:i(9),WebGLPipeline:i(147),WebGLRenderer:i(508),Pipelines:i(1435
  * @copyright    2020 Photon Storm Ltd.
  * @license      {@link https://opensource.org/licenses/MIT|MIT License}
  */
-t.exports={BitmapMaskPipeline:i(510),ForwardDiffuseLightPipeline:i(511),TextureTintPipeline:i(237),TextureTintStripPipeline:i(512),ModelViewProjection:i(238)}}])},t.exports=n()},function(t,e,i){"use strict";i.r(e);var n=i(0),s=i.n(n);const r={type:s.a.AUTO,width:1e3,height:600,physics:{default:"arcade",arcade:{gravity:{y:300},debug:!1}},scene:{preload:function(){this.load.image("cover_pic","../assets/bnfv.png")},create:function(){this.add.image(500,300,"cover_pic")},update:function(){}}};new s.a.Game(r)}]);
+t.exports={BitmapMaskPipeline:i(510),ForwardDiffuseLightPipeline:i(511),TextureTintPipeline:i(237),TextureTintStripPipeline:i(512),ModelViewProjection:i(238)}}])},t.exports=n()},function(t,e,i){"use strict";i.r(e);var n=i(0),s=i.n(n);const r={type:s.a.AUTO,width:1e3,height:800,backgroundColor:"black",physics:{default:"arcade",arcade:{gravity:{x:0,y:0}}},scene:[SceneMainMenu,SceneMain,SceneGameOver],pixelArt:!0,roundPixels:!0};new s.a.Game(r)}]);

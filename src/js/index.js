@@ -1,32 +1,23 @@
 import Phaser from 'phaser';
 
-function preload() {
-  this.load.image('cover_pic', '../assets/bnfv.png');
-}
-
-function create() {
-  this.add.image(500, 300, 'cover_pic');
-}
-
-function update() {
-}
-
 const config = {
   type: Phaser.AUTO,
   width: 1000,
-  height: 600,
+  height: 800,
+  backgroundColor: 'black',
   physics: {
     default: 'arcade',
     arcade: {
-      gravity: { y: 300 },
-      debug: false,
+      gravity: { x: 0, y: 0 },
     },
   },
-  scene: {
-    preload,
-    create,
-    update,
-  },
+  scene: [
+    SceneMainMenu,
+    SceneMain,
+    SceneGameOver
+  ],
+  pixelArt: true,
+  roundPixels: true
 };
 
 const game = new Phaser.Game(config);
