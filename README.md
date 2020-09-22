@@ -113,7 +113,7 @@ Survive as long as possible and collect as many resources as possible. Try to ge
   - Main Objective (Done)
   - Define Game Logic (Done)
   - Implementation Plan (Done)
-  - Define Assets
+  - Define Assets (Done)
 
 - **Day 3**
 **Scene Development**
