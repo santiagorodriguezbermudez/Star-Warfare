@@ -7,8 +7,7 @@
     "build": "webpack --config webpack/prod.js",
     "start": "webpack-dev-server --config webpack/base.js --open",
     "test": "jest",
-    "test_watch": "jest --watch",
-    "watch": "webpack --watch"
+    "test_watch": "jest --watch"
   },
   "repository": {
     "type": "git",

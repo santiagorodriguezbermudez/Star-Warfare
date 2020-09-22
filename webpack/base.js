@@ -10,7 +10,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        include: path.resolve(__dirname, 'src/js'),
+        include: path.resolve(__dirname, 'src/'),
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -38,7 +38,7 @@ module.exports = {
       WEBGL_RENDERER: JSON.stringify(true),
     }),
     new HtmlWebpackPlugin({
-      template: '../dist/index.html',
-    }), // specify where your HTML template is located
+      template: './index.html',
+    }),
   ],
 };
