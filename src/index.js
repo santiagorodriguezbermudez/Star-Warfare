@@ -1,23 +1,13 @@
 import Phaser from 'phaser';
+import config from './js/config/config';
+import Controller from './js/scenes/controller';
 
-const config = {
-  type: Phaser.AUTO,
-  width: 1000,
-  height: 800,
-  backgroundColor: 'black',
-  physics: {
-    default: 'arcade',
-    arcade: {
-      gravity: { x: 0, y: 0 },
-    },
-  },
-  scene: [
-    SceneMainMenu,
-    SceneMain,
-    SceneGameOver
-  ],
-  pixelArt: true,
-  roundPixels: true
-};
+class Game extends Phaser.Game {
+  constructor() {
+    super(config);
+    this.scene.add('Controller', new Controller());
+    this.scene.start('Controller');
+  }
+}
 
-const game = new Phaser.Game(config);
+const game = new Game(); /* eslint-disable-line */
