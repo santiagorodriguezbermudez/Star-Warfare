@@ -1,12 +1,12 @@
 import Phaser from 'phaser';
 import config from './js/config/config';
-import Controller from './js/scenes/controller';
+import SceneController from './js/scenes/scene_controller';
 
 class Game extends Phaser.Game {
   constructor() {
     super(config);
-    this.scene.add('Controller', new Controller());
-    this.scene.start('Controller');
+    this.scene.add('SceneController', new SceneController());
+    this.scene.start('SceneController');
   }
 }
 
