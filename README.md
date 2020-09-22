@@ -158,6 +158,9 @@ You can do it on [issues page](issues/).
 
 ## Acknowledgments
 
+Audio is credited to the following authors:
+- Menu song -> Epic Journey by Yung Logos
+
 Special thanks to my Ocicats team at Microverse and my mentor Daniel Santander
 
 ## Show your support

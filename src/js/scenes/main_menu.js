@@ -13,11 +13,11 @@ class Menu extends Phaser.Scene {
     this.gameBtn = new Btn(this, config.width / 2, config.height / 2 + 100, 'start_btn', 'start_btn_hover', 'Intro');
     this.leaderboardBtn = new Btn(this, config.width / 2, config.height / 2 + 200, 'leader_btn', 'leader_btn_hover', 'Leaderboard');
 
-    // this.music = this.sys.game.globals.music;
-    // this.bgMusic = this.sound.add('main_menu_music', { volume: 0.5, loop: true });
-    // this.bgMusic.play();
-    // this.music.bgMusicPlaying = true;
-    // this.sys.game.globals.bgMusic = this.bgMusic;
+    this.music = this.sys.game.globals.music;
+    this.bgMusic = this.sound.add('menu_audio', { volume: 0.8, loop: true });
+    this.bgMusic.play();
+    this.music.bgMusicPlaying = true;
+    this.sys.game.globals.bgMusic = this.bgMusic;
   }
 }
 

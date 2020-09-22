@@ -52,13 +52,16 @@ class LoadingScene extends Phaser.Scene {
 
     this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
 
-    // Download all of the assets here
-    this.load.image('main-menu-bg', '../src/assets/images/main-menu-bg.jpg');
+    // Download all of the images first
+    this.load.image('main-menu-bg', 'src/assets/images/main-menu-bg.jpg');
     this.load.image('start_logo', 'src/assets/images/start_logo.png');
     this.load.image('start_btn', 'src/assets/images/start_btn.png');
     this.load.image('start_btn_hover', 'src/assets/images/start_btn_hover.png');
     this.load.image('leader_btn', 'src/assets/images/leader_btn.png');
     this.load.image('leader_btn_hover', 'src/assets/images/leader_btn_hover.png');
+
+    // Download all of the audios
+    this.load.audio('menu_audio', ['src/assets/audio/menu_audio.mp3']);
   }
 
   ready() {
