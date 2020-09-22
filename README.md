@@ -36,9 +36,13 @@ Elon Musk has reach out to you because of your awesome ability to procrastinate 
 
 As your mission, you'll lead team Mars by navigating our spaceship into the wild and dark space. Once the space mission begins, the mars team discover several obstacles in the way, including extraterrestrial forces, that become a blocker for team Mars to achieve their goal.
 
-To make things worst, Robo-Mars, the autonomous spaceship that had all of the fuel supplies for the return journey has been hit by an asteriod leaving fuel capsules all over the universe. Surprisingly, they keep their position and thus your spaceship can recolect them on your way to Mars. The more fuel capsules you capture, you'll be more likely to have resources for the return trip.
+To make things worst, Robo-Mars, the autonomous spaceship that had all of the supplies for the return journey has been hit by an asteriod, leaving supplies all over the universe. Surprisingly, they kept their position and thus your spaceship can recollect them on your way to Mars. The more supplies you capture, the more you'll be likely to have resources for the return trip.
 
 You think you can lead your way into Mars?
+
+### Main Objective
+
+Survive as long as possible and collect as many resources as possible. Try to get to mars at all costs.
 
 ### How to play
 
@@ -46,7 +50,7 @@ You think you can lead your way into Mars?
 - Accelerate by pressing the 'up' arrow on your keyboard.
 - Slow down by pessing the 'down' arrow on your keyboard.
 - Shoot your power gun by pressing the 'space' bar on your keyword
-- Collect stars in order to increase your score for the return mission.
+- Collect supplies in order to increase your score for the return mission.
 - Avoid all obstacles to keep your team alive.
 
 #### Marsian (The Spaceship )
@@ -55,19 +59,41 @@ You think you can lead your way into Mars?
 
 - Marsian was build with the latest technology.
 
-#### Interactive Scenario
+#### Enemies
 
-![Fuel capsules]()
+![Space storm]()
 
-- We don't know why does the fuel capsules have stayed within the Marsian route towards Mars, but we must take advantage of it. Collect as much as possible so we can have enough resources for the return trip.
+- Storms are the worst. You must travel through them avoiding any mortal collision.
 
 ![Asteroids]()
 
 - Space is full of asteroids. Avoid them at all cost. 
 
-![ufo]()
+![UFO]()
 
-- UFO's have been detected. They seem harmful and will try to sabotage this mission as they want to conquer Mars as well. 
+- UFO's have been detected. They seem harmful and will try to sabotage this mission as they want to conquer Mars as well.
+
+![Magnetic bugs]()
+
+- Human garbage send into space has muted into magnetic bugs. These will feel atracted to the spaceship and make your spacecraft heavier and more prompt to collide with other space items. 
+
+![Human garbage]()
+
+- Right after take off, Earth orbit is full of garbage. You must skip this and avoid any mortal collision.
+
+#### Resources
+
+![Fuel capsules]()
+
+- We don't know why does the fuel capsules have stayed within the Marsian route towards Mars, but we must take advantage of it. Collect as much as possible so we can have enough resources for the return trip.
+
+![water]()
+
+- Our water supplies are low, because our supply machine within the spaceship has broken. Collect water along the way so you can make it back home.
+
+![medical aid]()
+
+- Collect medical aid equipment that you can use in case you have an emergency.
 
 ## Demo
 
@@ -77,23 +103,33 @@ You think you can lead your way into Mars?
 
 - **Day 1**
 **Learn Phaser 3 module**
- I code along the Phaser 3 space shooter tutorial learning the basics about how to structure the project. I setup as well the current repo, installing Webpack and Phaser 3, thinking about the game logic. Manage to complete this steps. 
+ I code along the Phaser 3 space shooter tutorial learning the basics about how to structure the project. I setup as well the current repo, installing Webpack and Phaser 3, thinking about the game logic. Manage to complete this steps without any problems.
 
 - **Day 2**
 **Game Design**
  Pulish the game concept, define the characters and main objective. Look for assets to implement all of the game scenes. Define the game rules and logic. Work on the storytelling to make it attractive. Plan the development of the game in specific chunks of user stories converted to technical tasks to be done. 
+  - Game Concept (Done)
+  - Characters (Done)
+  - Main Objective (Done)
+  - Define Game Logic (Done)
+  - Implementation Plan (Done)
+  - Define Assets
 
 - **Day 3**
 **Scene Development**
- To be determined
+ - Implement main menu
+ - Implemente main game
 
 - **Day 4**
 **Game Development**
- To be determined
+ - Implement leaderboard menu
+ - Implement menu
 
 - **Day 5**
 **Deployment**
- To be determined
+- Run tests
+- Deploy to netlify
+- Evaluate extra functionalities
 
 ## Built With
 - Javascript
