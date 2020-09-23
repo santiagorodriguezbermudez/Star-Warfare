@@ -47,7 +47,7 @@ class Introduction extends Phaser.Scene {
   update() {
     // Creates the update command in case the user wants to skip the introduction.
     if (this.keySpace.isDown) {
-      // console.log('Start the game');
+      this.scene.start('Game');
     }
   }
 }

@@ -53,13 +53,20 @@ class LoadingScene extends Phaser.Scene {
     this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
 
     // Download all of the images first
-
     // Background assets
-    this.load.image('main-menu-bg', 'src/assets/images/main-menu-bg.png');
-    this.load.image('stage1-bg', 'src/assets/images/stage1.jpg');
-    this.load.image('stage2-bg', 'src/assets/images/stage2.jpg');
-    this.load.image('stage3-bg', 'src/assets/images/stage3.jpg');
-    this.load.image('stage4-bg', 'src/assets/images/stage4.jpg');
+    this.load.image('main_menu_bg', 'src/assets/images/main-menu-bg.png');
+    this.load.image('stage1_bg', 'src/assets/images/stage1.jpg');
+    this.load.image('stage2_bg', 'src/assets/images/stage2.jpg');
+    this.load.image('stage3_bg', 'src/assets/images/stage3.jpg');
+    this.load.image('stage4_bg', 'src/assets/images/stage4.jpg');
+
+    // Player assets
+    this.load.image('player_laser', 'src/assets/images/player_laser.png');
+    this.load.image('player_live', 'src/assets/images/player_live.png');
+    this.load.spritesheet('player', 'src/assets/images/player.png', {
+      frameWidth: 33,
+      frameHeight: 33,
+    });
 
     this.load.image('start_logo', 'src/assets/images/start_logo.png');
     this.load.image('start_btn', 'src/assets/images/start_btn.png');
@@ -68,7 +75,12 @@ class LoadingScene extends Phaser.Scene {
     this.load.image('leader_btn_hover', 'src/assets/images/leader_btn_hover.png');
 
     // Download all of the audios
+    // Main Menu
     this.load.audio('menu_audio', ['src/assets/audio/menu_audio.mp3']);
+    this.load.audio('stage1_audio', ['src/assets/audio/stage1_audio.mp3']);
+
+    // Player Audios
+    this.load.audio('player_laser_audio', ['src/assets/audio/player_laser.ogg']);
   }
 
   ready() {
