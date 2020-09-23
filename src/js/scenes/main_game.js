@@ -23,7 +23,16 @@ class MainGame extends Phaser.Scene {
 
     this.anims.create({
       key: 'player',
-      frames: this.anims.generateFrameNumbers('player'),
+      frames: [
+        { key: 'player1' },
+        { key: 'player2' },
+        { key: 'player3' },
+        { key: 'player4' },
+        { key: 'player5' },
+        { key: 'player6' },
+        { key: 'player7' },
+        { key: 'player8' },
+      ],
       frameRate: 20,
       repeat: -1,
     });

@@ -63,10 +63,7 @@ class LoadingScene extends Phaser.Scene {
     // Player assets
     this.load.image('player_laser', 'src/assets/images/player_laser.png');
     this.load.image('player_live', 'src/assets/images/player_live.png');
-    this.load.spritesheet('player', 'src/assets/images/player.png', {
-      frameWidth: 33,
-      frameHeight: 33,
-    });
+    [1, 2, 3, 4, 5, 6, 7, 8].forEach((el) => this.load.image(`player${el}`, `src/assets/images/animation_player/${el}.png`));
 
     this.load.image('start_logo', 'src/assets/images/start_logo.png');
     this.load.image('start_btn', 'src/assets/images/start_btn.png');
