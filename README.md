@@ -30,15 +30,15 @@ A JavaScript space shooting game built with Phaser 3.
 
 ### Game Concept
 
-It's 2025, Space X in collaboration with Nasa have been able to develop a spaceship with the capacity to travel all the way to Mars. Once thought as a crazy person, Elon Musk, leads the new adventure and becomes humanity's hope for a better future. On earth, global warming has reached a critical point and thus, earth will no longer be viable to live in. Mars has become our only hope if we want humanity to survive.
-
-Elon Musk has reach out to you because of your awesome ability to procrastinate important work playing arcade games. 
-
-As your mission, you'll lead team Mars by navigating our spaceship into the wild and dark space. Once the space mission begins, the mars team discover several obstacles in the way, including extraterrestrial forces, that become a blocker for team Mars to achieve their goal.
-
-To make things worst, Robo-Mars, the autonomous spaceship that had all of the supplies for the return journey has been hit by an asteriod, leaving supplies all over the universe. Surprisingly, they kept their position and thus your spaceship can recollect them on your way to Mars. The more supplies you capture, the more you'll be likely to have resources for the return trip.
-
-You think you can lead your way into Mars?
+It is the year 2025. Space X, in collaboration with Nasa, has been able to develop a spaceship with the capacity to travel all the way to Mars. Once thought as a crazy person, Elon Musk, leads a new adventure and becomes humanity's hope for a better future. On earth, global warming has reached a critical point and thus, the earth will no longer be viable to live in. Mars has become our only hope if we want humanity to survive.
+ 
+Elon Musk has reached out to you because of your awesome ability to procrastinate important work playing arcade games.
+ 
+If you accept this mission, you'll lead team Mars by navigating our spaceship into the wild and dark space. Our research shows that you’ll have to fight through several obstacles to complete your mission.
+ 
+To make things worst, Robo-Mars, the autonomous spaceship that had all of the supplies for the return journey has been hit by an asteroid, leaving supplies all over the universe. Surprisingly, they kept their position and thus your spaceship can recollect them on your way to Mars. The more supplies you capture, the more you'll be likely to have enough resources for the return trip.
+ 
+Do you think you can lead your way into Mars?
 
 ### Main Objective
 

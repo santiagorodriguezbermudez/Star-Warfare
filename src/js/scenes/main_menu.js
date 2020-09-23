@@ -10,7 +10,7 @@ class Menu extends Phaser.Scene {
   create() {
     this.add.image(600, 300, 'main-menu-bg');
     this.add.image(config.width / 2, config.height / 2 - 100, 'start_logo');
-    this.gameBtn = new Btn(this, config.width / 2, config.height / 2 + 100, 'start_btn', 'start_btn_hover', 'Intro');
+    this.gameBtn = new Btn(this, config.width / 2, config.height / 2 + 100, 'start_btn', 'start_btn_hover', 'Introduction');
     this.leaderboardBtn = new Btn(this, config.width / 2, config.height / 2 + 200, 'leader_btn', 'leader_btn_hover', 'Leaderboard');
 
     this.music = this.sys.game.globals.music;
