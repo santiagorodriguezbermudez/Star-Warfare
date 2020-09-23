@@ -14,7 +14,7 @@ class Menu extends Phaser.Scene {
     this.leaderboardBtn = new Btn(this, config.width / 2, config.height / 2 + 200, 'leader_btn', 'leader_btn_hover', 'Leaderboard');
 
     this.music = this.sys.game.globals.music;
-    this.bgMusic = this.sound.add('menu_audio', { volume: 0.8, loop: true });
+    this.bgMusic = this.sound.add('menu_audio', { volume: 1, loop: true });
     this.bgMusic.play();
     this.music.bgMusicPlaying = true;
     this.sys.game.globals.bgMusic = this.bgMusic;
