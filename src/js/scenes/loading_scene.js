@@ -53,7 +53,14 @@ class LoadingScene extends Phaser.Scene {
     this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
 
     // Download all of the images first
-    this.load.image('main-menu-bg', 'src/assets/images/main-menu-bg.jpg');
+
+    // Background assets
+    this.load.image('main-menu-bg', 'src/assets/images/main-menu-bg.png');
+    this.load.image('stage1-bg', 'src/assets/images/stage1.jpg');
+    this.load.image('stage2-bg', 'src/assets/images/stage2.jpg');
+    this.load.image('stage3-bg', 'src/assets/images/stage3.jpg');
+    this.load.image('stage4-bg', 'src/assets/images/stage4.jpg');
+
     this.load.image('start_logo', 'src/assets/images/start_logo.png');
     this.load.image('start_btn', 'src/assets/images/start_btn.png');
     this.load.image('start_btn_hover', 'src/assets/images/start_btn_hover.png');
