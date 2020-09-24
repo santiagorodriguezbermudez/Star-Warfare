@@ -29,22 +29,6 @@ class Player extends Entity {
     this.body.velocity.x = this.getData('speed');
   }
 
-  displayLives(isFirstTime) {
-
-    if (isFirstTime) {
-      for (let i = 1; i <= this.getData('numberOfLives'); i+= 1 ) {
-        this.scene.image.add(750 + i, 50, 'player_live');
-      }
-    } else {
-      for (let i = 1; i <= this.getData('numberOfLives'); i+= 1 ) {
-        let image = this.scene.image.destroy(750 + i, 50, 'player_live');
-      };     
-    }
-    for (let i = 1; i <= this.getData('numberOfLives'); i += 1) {
-      this.textues.remove()
-    }
-  }
-
   // Game Over functionality
   onDestroy() {
     this.scene.time.addEvent({
