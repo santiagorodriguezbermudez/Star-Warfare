@@ -5,11 +5,21 @@ import Garbage from '../objects/garbage';
 class MainGame extends Phaser.Scene {
   constructor() {
     super('Game');
+    this.live1 = null;
+    this.live2 = null;
+    this.live3 = null;
+    this.live4 = null;
+    this.live5 = null;
   }
 
   create() {
-    // Setup the main game layout with the first stage bg image
+    // Setup the main game layout with the first stage bg image and user lives
     this.add.image(600, 300, 'stage1_bg');
+    this.live1 = this.add.image(975, 25, 'player1').setDisplaySize(50, 50);
+    this.live2 = this.add.image(925, 25, 'player1').setDisplaySize(50, 50);
+    this.live3 = this.add.image(875, 25, 'player1').setDisplaySize(50, 50);
+    this.live4 = this.add.image(825, 25, 'player1').setDisplaySize(50, 50);
+    this.live5 = this.add.image(772, 25, 'player1').setDisplaySize(50, 50);
 
     // Setup the initial audio in the background
     this.music = this.sys.game.globals.music;
@@ -169,32 +179,57 @@ class MainGame extends Phaser.Scene {
     this.physics.add.overlap(this.player, this.enemies, (player, enemy) => {
       if (!player.getData('isDead')
       && !enemy.getData('isDead')) {
-        player.explode(true);
+        this.player.setData('numberOfLives', this.player.getData('numberOfLives') - 1);
         enemy.explode(true);
+        if (this.player.getData('numberOfLives') === 0) {
+          player.explode(false);
+          player.onDestroy();
+        }
       }
     });
   }
 
   update() {
-    this.player.update();
 
-    if (this.keyUp.isDown) {
-      this.player.moveUp();
-    } else if (this.keyDown.isDown) {
-      this.player.moveDown();
+    switch (this.player.getData('numberOfLives')) {
+      case 4:
+        this.live5.destroy();
+        break;
+      case 3:
+        this.live4.destroy();
+        break;
+      case 2:
+        this.live3.destroy();
+        break;
+      case 1:
+        this.live2.destroy();
+        break;
+      case 0:
+        this.live1.destroy();
+        break;
+      default:
     }
+    if (!this.player.getData('isDead')) {
+      this.player.update();
 
-    if (this.keyLeft.isDown) {
-      this.player.moveLeft();
-    } else if (this.keyRight.isDown) {
-      this.player.moveRight();
-    }
+      if (this.keyUp.isDown) {
+        this.player.moveUp();
+      } else if (this.keyDown.isDown) {
+        this.player.moveDown();
+      }
 
-    if (this.keySpace.isDown) {
-      this.player.setData('isShooting', true);
-    } else {
-      this.player.setData('timerShootTick', this.player.getData('timerShootDelay') - 1);
-      this.player.setData('isShooting', false);
+      if (this.keyLeft.isDown) {
+        this.player.moveLeft();
+      } else if (this.keyRight.isDown) {
+        this.player.moveRight();
+      }
+
+      if (this.keySpace.isDown) {
+        this.player.setData('isShooting', true);
+      } else {
+        this.player.setData('timerShootTick', this.player.getData('timerShootDelay') - 1);
+        this.player.setData('isShooting', false);
+      }
     }
 
     // Destroy the laser if it no longers appears on the screen of the game

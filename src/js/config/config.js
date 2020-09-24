@@ -9,13 +9,13 @@ export default {
   backgroundColor: 'black',
   parent: 'phaser-container',
   dom: {
-    createContainer: true,
+    createContainer: false,
   },
   physics: {
     default: 'arcade',
     arcade: {
       gravity: { x: 0, y: 0 },
-      debug: true,
+      debug: false,
     },
   },
   plugins: {

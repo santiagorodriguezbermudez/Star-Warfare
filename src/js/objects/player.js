@@ -10,6 +10,7 @@ class Player extends Entity {
     this.setData('isShooting', false);
     this.setData('timerShootDelay', 10);
     this.setData('timerShootTick', this.getData('timerShootDelay') - 1);
+    this.setData('numberOfLives', 5);
   }
 
   moveUp() {
@@ -26,6 +27,43 @@ class Player extends Entity {
 
   moveRight() {
     this.body.velocity.x = this.getData('speed');
+  }
+
+  displayLives(isFirstTime) {
+
+    if (isFirstTime) {
+      for (let i = 1; i <= this.getData('numberOfLives'); i+= 1 ) {
+        this.scene.image.add(750 + i, 50, 'player_live');
+      }
+    } else {
+      for (let i = 1; i <= this.getData('numberOfLives'); i+= 1 ) {
+        let image = this.scene.image.destroy(750 + i, 50, 'player_live');
+      };     
+    }
+    for (let i = 1; i <= this.getData('numberOfLives'); i += 1) {
+      this.textues.remove()
+    }
+  }
+
+  // Game Over functionality
+  onDestroy() {
+    this.scene.time.addEvent({
+      delay: 1000,
+      callback: () => {
+        if (this.getData('numberOfLives') === 0) {
+          console.log('Game Over');
+          // Call the game over scene
+        } else {
+          const currentLives = this.getData('numberOfLives');
+          this.setData('numberOfLives', currentLives - 1);
+          this.setData('isDead', false);
+          this.setVisible(true);
+          this.play('player');
+        }
+      },
+      callbackScope: this,
+      loop: false,
+    });
   }
 
   update() {
