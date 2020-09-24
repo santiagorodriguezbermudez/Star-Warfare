@@ -1,4 +1,3 @@
-import Phaser from 'phaser';
 import Entity from './entities';
 
 class Laser extends Entity {

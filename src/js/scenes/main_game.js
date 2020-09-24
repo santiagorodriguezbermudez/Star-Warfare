@@ -166,6 +166,17 @@ class MainGame extends Phaser.Scene {
       repeat: 60,
     });
 
+    this.time.addEvent({
+      delay: 50000,
+      callback: () => {
+        if (this.player.getData('numberOfLives') > 0) {
+          console.log('call_next_scene');
+        }
+      },
+      callbackScope: this,
+      repeat: 0,
+    });
+
     // Collision conditionals
     // Player Laser and enemies
     this.physics.add.collider(this.playerLasers, this.enemies, (playerLaser, enemy) => {
