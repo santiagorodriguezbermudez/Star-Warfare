@@ -70,6 +70,8 @@ class LoadingScene extends Phaser.Scene {
     [1, 2, 3, 4].forEach((el) => this.load.image(`asteroid${el}`, `src/assets/images/asteroids/asteroid${el}.png`));
     this.load.image('magnet', 'src/assets/images/magnet/magnet.png');
     [1, 2, 3, 4].forEach((el) => this.load.image(`ufo${el}`, `src/assets/images/animation_ufo/${el}.png`));
+    [1, 2, 3, 4, 5].forEach((el) => this.load.image(`boss${el}`, `src/assets/images/animation_boss/${el}.png`));
+    [1, 2].forEach((el) => this.load.image(`mine${el}`, `src/assets/images/animation_mines/${el}.png`));
 
     // Game assets
     this.load.image('start_logo', 'src/assets/images/start_logo.png');

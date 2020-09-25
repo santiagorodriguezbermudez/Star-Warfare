@@ -4,6 +4,7 @@ import Garbage from '../objects/garbage';
 import Asteroid from '../objects/asteroids';
 import Magnet from '../objects/magnets';
 import Ufo from '../objects/ufo';
+import Boss from '../objects/boss';
 
 class MainGame extends Phaser.Scene {
   constructor() {
@@ -85,6 +86,31 @@ class MainGame extends Phaser.Scene {
         { key: 'ufo2' },
         { key: 'ufo3' },
         { key: 'ufo4' },
+      ],
+      frameRate: 20,
+      repeat: -1,
+    });
+
+    // Boss animation
+    this.anims.create({
+      key: 'boss',
+      frames: [
+        { key: 'boss1' },
+        { key: 'boss2' },
+        { key: 'boss3' },
+        { key: 'boss4' },
+        { key: 'boss5' },
+      ],
+      frameRate: 20,
+      repeat: -1,
+    });
+
+    // Mine animation
+    this.anims.create({
+      key: 'mine',
+      frames: [
+        { key: 'mine1' },
+        { key: 'mine2' },
       ],
       frameRate: 20,
       repeat: -1,
@@ -196,13 +222,26 @@ class MainGame extends Phaser.Scene {
     //   repeat: 0,
     // });
 
-    // Change of scenario to final scenario
+    // Change of scenario to ufo scenario
+    // this.time.addEvent({
+    //   delay: 3000,
+    //   callback: () => {
+    //     if (this.player.getData('numberOfLives') > 0) {
+    //       this.cameras.main.fadeOut(3000);
+    //       this.createThirdStage();
+    //     }
+    //   },
+    //   callbackScope: this,
+    //   repeat: 0,
+    // });
+
+    // Change of scenario to boss scenario
     this.time.addEvent({
       delay: 3000,
       callback: () => {
         if (this.player.getData('numberOfLives') > 0) {
           this.cameras.main.fadeOut(3000);
-          this.createThirdStage();
+          this.createBoss();
         }
       },
       callbackScope: this,
@@ -279,10 +318,6 @@ class MainGame extends Phaser.Scene {
     });
   }
 
-  getNumberOfEnemies(type) {
-    return this.enemies.getChildren().filter(enemy => enemy.getData('type') === type).length;
-  }
-
   createThirdStage() {
     this.current_stage_bg.destroy();
     this.current_stage_bg = this.add.image(600, 300, 'stage3_bg');
@@ -311,6 +346,33 @@ class MainGame extends Phaser.Scene {
       callbackScope: this,
       repeat: 90,
     });
+  }
+
+  createBoss() {
+    this.current_stage_bg.destroy();
+    this.current_stage_bg = this.add.image(600, 300, 'stage4_bg');
+    this.current_stage_bg.setDepth(-1000);
+    this.cameras.main.fadeIn(1000);
+
+    // Third type of enemies, UFO + magnets
+    this.time.addEvent({
+      delay: 2000,
+      callback: () => {
+        const boss = new Boss(
+          this,
+          500,
+          0,
+        );
+        this.enemies.add(boss);
+        boss.body.setSize(boss.body.width, boss.body.height);
+      },
+      callbackScope: this,
+      repeat: 0,
+    });
+  }
+
+  getNumberOfEnemies(type) {
+    return this.enemies.getChildren().filter(enemy => enemy.getData('type') === type).length;
   }
 
   update() {
