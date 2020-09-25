@@ -252,8 +252,12 @@ class MainGame extends Phaser.Scene {
     // Player Laser and enemies
     this.physics.add.collider(this.playerLasers, this.enemies, (playerLaser, enemy) => {
       if (enemy) {
-        enemy.explode(true);
+        enemy.setData('numberOfLives', enemy.getData('numberOfLives') - 1);
         playerLaser.destroy();
+        console.log(`${enemy.getData('type')} has lives ${enemy.getData('numberOfLives')}}`);
+        if (enemy.getData('numberOfLives') === 0) {
+          enemy.explode(true);
+        }
       }
     });
 
@@ -361,7 +365,7 @@ class MainGame extends Phaser.Scene {
         const boss = new Boss(
           this,
           500,
-          0,
+          150,
         );
         this.enemies.add(boss);
         boss.body.setSize(boss.body.width, boss.body.height);

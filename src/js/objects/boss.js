@@ -8,6 +8,7 @@ class Boss extends Entity {
     super(scene, x, y, 'boss', 'boss');
     this.body.collideWorldBounds = true;
     this.play('boss');
+    this.setData('numberOfLives', 5);
     this.shootTimer = scene.time.addEvent({
       delay: 500,
       callback: () => {
@@ -24,10 +25,9 @@ class Boss extends Entity {
     });
 
     this.movement = scene.time.addEvent({
-      delay: 500,
+      delay: 1000,
       callback: () => {
         this.body.velocity.x = Phaser.Math.Between(-350, 350);
-        this.body.velocity.y = Phaser.Math.Between(-10, 10);
         const magnet = new Magnet(
           this.scene,
           this.x,
@@ -41,13 +41,25 @@ class Boss extends Entity {
   }
 
 
+  // Game Over functionality
   onDestroy() {
-    if (this.shootTimer !== undefined) {
-      if (this.shootTimer) {
-        this.shootTimer.remove(false);
-        this.movement.remove(false);
-      }
-    }
+    this.scene.time.addEvent({
+      delay: 1000,
+      callback: () => {
+        if (this.getData('numberOfLives') === 0) {
+          console.log('You win');
+          // Call the game over scene
+        } else {
+          const currentLives = this.getData('numberOfLives');
+          this.setData('numberOfLives', currentLives - 1);
+          this.setData('isDead', false);
+          this.setVisible(true);
+          this.play('boss');
+        }
+      },
+      callbackScope: this,
+      loop: false,
+    });
   }
 }
 
