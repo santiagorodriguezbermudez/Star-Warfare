@@ -3,6 +3,7 @@ import Player from '../objects/player';
 import Garbage from '../objects/garbage';
 import Asteroid from '../objects/asteroids';
 import Magnet from '../objects/magnets';
+import Ufo from '../objects/ufo';
 
 class MainGame extends Phaser.Scene {
   constructor() {
@@ -50,7 +51,7 @@ class MainGame extends Phaser.Scene {
       repeat: -1,
     });
 
-    // Creates Garbage aninmation
+    // Creates Garbage animation
     this.anims.create({
       key: 'garbage',
       frames: [
@@ -71,6 +72,19 @@ class MainGame extends Phaser.Scene {
         { key: 'garbage14' },
         { key: 'garbage15' },
         { key: 'garbage16' },
+      ],
+      frameRate: 20,
+      repeat: -1,
+    });
+
+    // Ufo animation
+    this.anims.create({
+      key: 'ufo',
+      frames: [
+        { key: 'ufo1' },
+        { key: 'ufo2' },
+        { key: 'ufo3' },
+        { key: 'ufo4' },
       ],
       frameRate: 20,
       repeat: -1,
@@ -204,6 +218,19 @@ class MainGame extends Phaser.Scene {
       }
     });
 
+    // Collision conditionals
+    // Player Laser and enemies
+    this.physics.add.collider(this.player, this.enemyLasers, (player, enemyLaser) => {
+      if (!player.getData('isDead')) {
+        this.player.setData('numberOfLives', this.player.getData('numberOfLives') - 1);
+        enemyLaser.explode(true);
+        if (this.player.getData('numberOfLives') === 0) {
+          player.explode(false);
+          player.onDestroy();
+        }
+      }
+    });
+
     // Overlap conditionals between the player and the enemies
     this.physics.add.overlap(this.player, this.enemies, (player, enemy) => {
       if (!player.getData('isDead')
@@ -218,7 +245,7 @@ class MainGame extends Phaser.Scene {
     });
   }
 
-  createSecondStage() { 
+  createSecondStage() {
     this.current_stage_bg.destroy();
     this.current_stage_bg = this.add.image(600, 300, 'stage2_bg');
     this.current_stage_bg.setDepth(-1000);
@@ -264,26 +291,21 @@ class MainGame extends Phaser.Scene {
 
     // Third type of enemies, UFO + magnets
     this.time.addEvent({
-      delay: Phaser.Math.Between(1000, 5000),
+      delay: 500,
       callback: () => {
-        let enemy = null;
-        if (Phaser.Math.Between(0, 10) > 10) {
-          // enemy = new (
-          //   this,
-          //   Phaser.Math.Between(0, this.game.config.width),
-          //   0,
-          // );
-        } else if (Phaser.Math.Between(0, 10) >= 0) {
-          if (this.getNumberOfEnemies('magnet') < 7) {
-            enemy = new Magnet(
-              this,
-              Phaser.Math.Between(0, this.game.config.width),
-              0,
-            );
-          }
-        }
-        if (enemy !== null) {
-          this.enemies.add(enemy);
+        const ufo = new Ufo(
+          this,
+          Phaser.Math.Between(0, this.game.config.width),
+          0,
+        );
+        this.enemies.add(ufo);
+        if (this.getNumberOfEnemies('magnet') < 9) {
+          const magnet = new Magnet(
+            this,
+            Phaser.Math.Between(0, this.game.config.width),
+            0,
+          );
+          this.enemies.add(magnet);
         }
       },
       callbackScope: this,

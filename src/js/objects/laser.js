@@ -1,9 +1,9 @@
 import Entity from './entities';
 
 class Laser extends Entity {
-  constructor(scene, x, y) {
+  constructor(scene, x, y, direction) {
     super(scene, x, y, 'player_laser');
-    this.body.velocity.y = -200;
+    this.body.velocity.y = (direction === 'down') ? 200 : -200;
   }
 }
 
