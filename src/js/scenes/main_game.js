@@ -10,11 +10,12 @@ class MainGame extends Phaser.Scene {
     this.live3 = null;
     this.live4 = null;
     this.live5 = null;
+    this.current_stage_bg = null;
   }
 
   create() {
     // Setup the main game layout with the first stage bg image and user lives
-    this.add.image(600, 300, 'stage1_bg');
+    this.current_stage_bg = this.add.image(600, 300, 'stage1_bg');
     this.live1 = this.add.image(975, 25, 'player1').setDisplaySize(50, 50);
     this.live2 = this.add.image(925, 25, 'player1').setDisplaySize(50, 50);
     this.live3 = this.add.image(875, 25, 'player1').setDisplaySize(50, 50);
@@ -167,10 +168,11 @@ class MainGame extends Phaser.Scene {
     });
 
     this.time.addEvent({
-      delay: 50000,
+      delay: 20000,
       callback: () => {
         if (this.player.getData('numberOfLives') > 0) {
-          console.log('call_next_scene');
+          this.cameras.main.fadeOut(5000);
+          this.createSecondStage(this.current_stage_bg);
         }
       },
       callbackScope: this,
@@ -200,8 +202,16 @@ class MainGame extends Phaser.Scene {
     });
   }
 
-  update() {
+  createSecondStage() {
+    this.current_stage_bg.destroy();
+    this.current_stage_bg = this.add.image(600, 300, 'stage2_bg');
+    this.current_stage_bg.setDepth(-1000);
+    this.cameras.main.fadeIn(5000);
 
+    
+  }
+
+  update() {
     switch (this.player.getData('numberOfLives')) {
       case 4:
         this.live5.destroy();
