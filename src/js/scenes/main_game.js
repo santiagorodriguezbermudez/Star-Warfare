@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import Player from '../objects/player';
 import Garbage from '../objects/garbage';
 import Asteroid from '../objects/asteroids';
+import Magnet from '../objects/magnets';
 
 class MainGame extends Phaser.Scene {
   constructor() {
@@ -168,13 +169,26 @@ class MainGame extends Phaser.Scene {
     //   repeat: 60,
     // });
 
-    // Change of scenario
+    // Change of scenario to second scenario
+    // this.time.addEvent({
+    //   delay: 3000,
+    //   callback: () => {
+    //     if (this.player.getData('numberOfLives') > 0) {
+    //       this.cameras.main.fadeOut(3000);
+    //       this.createSecondStage();
+    //     }
+    //   },
+    //   callbackScope: this,
+    //   repeat: 0,
+    // });
+
+    // Change of scenario to final scenario
     this.time.addEvent({
       delay: 3000,
       callback: () => {
         if (this.player.getData('numberOfLives') > 0) {
-          this.cameras.main.fadeOut(5000);
-          this.createSecondStage(this.current_stage_bg);
+          this.cameras.main.fadeOut(3000);
+          this.createThirdStage();
         }
       },
       callbackScope: this,
@@ -204,7 +218,7 @@ class MainGame extends Phaser.Scene {
     });
   }
 
-  createSecondStage() {
+  createSecondStage() { 
     this.current_stage_bg.destroy();
     this.current_stage_bg = this.add.image(600, 300, 'stage2_bg');
     this.current_stage_bg.setDepth(-1000);
@@ -234,7 +248,46 @@ class MainGame extends Phaser.Scene {
         }
       },
       callbackScope: this,
-      repeat: 60,
+      repeat: 1,
+    });
+  }
+
+  getNumberOfEnemies(type) {
+    return this.enemies.getChildren().filter(enemy => enemy.getData('type') === type).length;
+  }
+
+  createThirdStage() {
+    this.current_stage_bg.destroy();
+    this.current_stage_bg = this.add.image(600, 300, 'stage3_bg');
+    this.current_stage_bg.setDepth(-1000);
+    this.cameras.main.fadeIn(1000);
+
+    // Third type of enemies, UFO + magnets
+    this.time.addEvent({
+      delay: Phaser.Math.Between(1000, 5000),
+      callback: () => {
+        let enemy = null;
+        if (Phaser.Math.Between(0, 10) > 10) {
+          // enemy = new (
+          //   this,
+          //   Phaser.Math.Between(0, this.game.config.width),
+          //   0,
+          // );
+        } else if (Phaser.Math.Between(0, 10) >= 0) {
+          if (this.getNumberOfEnemies('magnet') < 7) {
+            enemy = new Magnet(
+              this,
+              Phaser.Math.Between(0, this.game.config.width),
+              0,
+            );
+          }
+        }
+        if (enemy !== null) {
+          this.enemies.add(enemy);
+        }
+      },
+      callbackScope: this,
+      repeat: 90,
     });
   }
 

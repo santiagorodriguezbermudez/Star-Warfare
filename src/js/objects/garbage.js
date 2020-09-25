@@ -3,7 +3,7 @@ import Entity from './entities';
 
 class Garbage extends Entity {
   constructor(scene, x, y) {
-    super(scene, x, y, 'Garbage');
+    super(scene, x, y, 'Garbage', 'garbage');
     this.body.velocity.y = Phaser.Math.Between(20, 150);
     this.play('garbage');
   }
