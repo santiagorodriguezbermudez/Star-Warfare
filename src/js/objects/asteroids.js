@@ -7,7 +7,6 @@ class Asteroids extends Entity {
     super(scene, x, y, `asteroid${randomHealth}`);
     this.body.velocity.y = 200;
     this.hp = randomHealth;
-    this.setScale(0.075);
   }
 }
 
