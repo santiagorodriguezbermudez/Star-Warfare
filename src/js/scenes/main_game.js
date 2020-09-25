@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import Player from '../objects/player';
 import Garbage from '../objects/garbage';
+import Asteroid from '../objects/asteroids';
 
 class MainGame extends Phaser.Scene {
   constructor() {
@@ -168,7 +169,7 @@ class MainGame extends Phaser.Scene {
     });
 
     this.time.addEvent({
-      delay: 20000,
+      delay: 5000,
       callback: () => {
         if (this.player.getData('numberOfLives') > 0) {
           this.cameras.main.fadeOut(5000);
@@ -208,7 +209,29 @@ class MainGame extends Phaser.Scene {
     this.current_stage_bg.setDepth(-1000);
     this.cameras.main.fadeIn(5000);
 
-    
+    // New wave of enemies
+    // Second type of enemies
+    this.time.addEvent({
+      delay: 3000,
+      callback: () => {
+        const enemy = new Asteroid(
+          this,
+          50,
+          0,
+        );
+        // Creates asteroids aninmation
+        this.tweens.add({
+          key: 'asteroid_animation_tween',
+          targets: enemy,
+          duration: 2000,
+          rotation: 2,
+          repeat: -1,
+        });
+        this.enemies.add(enemy);
+      },
+      callbackScope: this,
+      repeat: 30,
+    });
   }
 
   update() {
