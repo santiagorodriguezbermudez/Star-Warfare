@@ -116,60 +116,61 @@ class MainGame extends Phaser.Scene {
 
     // Creates the events that will trigger the appearance of new enemies
     // First wave of garbage
-    this.time.addEvent({
-      delay: 1500,
-      callback: () => {
-        const enemy = new Garbage(
-          this,
-          Phaser.Math.Between(0, this.game.config.width),
-          0,
-        );
-        enemy.body.setSize(enemy.body.width, enemy.body.height);
-        enemy.setScale(Phaser.Math.Between(4, 7) * 0.1);
-        this.enemies.add(enemy);
-      },
-      callbackScope: this,
-      repeat: 30,
-    });
+    // this.time.addEvent({
+    //   delay: 1500,
+    //   callback: () => {
+    //     const enemy = new Garbage(
+    //       this,
+    //       Phaser.Math.Between(0, this.game.config.width),
+    //       0,
+    //     );
+    //     enemy.body.setSize(enemy.body.width, enemy.body.height);
+    //     enemy.setScale(Phaser.Math.Between(4, 7) * 0.1);
+    //     this.enemies.add(enemy);
+    //   },
+    //   callbackScope: this,
+    //   repeat: 30,
+    // });
 
     // Second wave of garbage
+    // this.time.addEvent({
+    //   delay: 1000,
+    //   callback: () => {
+    //     const enemy = new Garbage(
+    //       this,
+    //       Phaser.Math.Between(0, this.game.config.width),
+    //       0,
+    //     );
+
+    //     enemy.body.setSize(enemy.body.width, enemy.body.height);
+    //     enemy.setScale(Phaser.Math.Between(4, 7) * 0.1);
+    //     this.enemies.add(enemy);
+    //   },
+    //   callbackScope: this,
+    //   repeat: 30,
+    // });
+
+    // Third wave of garbage
+    // this.time.addEvent({
+    //   delay: 500,
+    //   callback: () => {
+    //     const enemy = new Garbage(
+    //       this,
+    //       Phaser.Math.Between(0, this.game.config.width),
+    //       0,
+    //     );
+
+    //     enemy.body.setSize(enemy.body.width, enemy.body.height);
+    //     enemy.setScale(Phaser.Math.Between(5, 8) * 0.2);
+    //     this.enemies.add(enemy);
+    //   },
+    //   callbackScope: this,
+    //   repeat: 60,
+    // });
+
+    // Change of scenario
     this.time.addEvent({
-      delay: 1000,
-      callback: () => {
-        const enemy = new Garbage(
-          this,
-          Phaser.Math.Between(0, this.game.config.width),
-          0,
-        );
-
-        enemy.body.setSize(enemy.body.width, enemy.body.height);
-        enemy.setScale(Phaser.Math.Between(4, 7) * 0.1);
-        this.enemies.add(enemy);
-      },
-      callbackScope: this,
-      repeat: 30,
-    });
-
-    // Second wave of garbage
-    this.time.addEvent({
-      delay: 500,
-      callback: () => {
-        const enemy = new Garbage(
-          this,
-          Phaser.Math.Between(0, this.game.config.width),
-          0,
-        );
-
-        enemy.body.setSize(enemy.body.width, enemy.body.height);
-        enemy.setScale(Phaser.Math.Between(5, 8) * 0.2);
-        this.enemies.add(enemy);
-      },
-      callbackScope: this,
-      repeat: 60,
-    });
-
-    this.time.addEvent({
-      delay: 5000,
+      delay: 3000,
       callback: () => {
         if (this.player.getData('numberOfLives') > 0) {
           this.cameras.main.fadeOut(5000);
@@ -207,30 +208,33 @@ class MainGame extends Phaser.Scene {
     this.current_stage_bg.destroy();
     this.current_stage_bg = this.add.image(600, 300, 'stage2_bg');
     this.current_stage_bg.setDepth(-1000);
-    this.cameras.main.fadeIn(5000);
+    this.cameras.main.fadeIn(1000);
 
-    // New wave of enemies
-    // Second type of enemies
+    // Second type of enemies, the asteroids
     this.time.addEvent({
-      delay: 3000,
+      delay: 400,
       callback: () => {
-        const enemy = new Asteroid(
-          this,
-          50,
-          0,
-        );
-        // Creates asteroids aninmation
-        this.tweens.add({
-          key: 'asteroid_animation_tween',
-          targets: enemy,
-          duration: 2000,
-          rotation: 2,
-          repeat: -1,
-        });
-        this.enemies.add(enemy);
+        const startWall = Phaser.Math.Between(0, 250);
+        const numberOfAsteroids = Phaser.Math.Between(0, 35);
+        for (let i = startWall; i <= (startWall + (32 * numberOfAsteroids)); i += 32) {
+          const enemy = new Asteroid(
+            this,
+            i,
+            0,
+          );
+          // Creates asteroids aninmation
+          this.tweens.add({
+            key: 'asteroid_animation_tween',
+            targets: enemy,
+            duration: 2000,
+            rotation: 2,
+            repeat: -1,
+          });
+          this.enemies.add(enemy);
+        }
       },
       callbackScope: this,
-      repeat: 30,
+      repeat: 60,
     });
   }
 
