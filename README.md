@@ -161,6 +161,8 @@ You can do it on [issues page](issues/).
 Audio is credited to the following authors:
 - Menu song -> Epic Journey by Yung Logos
 - Game song, stage 1 -> Chariots of War by Aakash Gandhi
+- Final song -> Soaring High by Biz Baz Studio
+- Final scene photo by Nicolas Lobos from Unplash
 
 Special thanks to my Ocicats team at Microverse and my mentor Daniel Santander
 

@@ -18,6 +18,7 @@ class MainGame extends Phaser.Scene {
   }
 
   create() {
+    const game = this;
     // Setup the main game layout with the first stage bg image and user lives
     this.current_stage_bg = this.add.image(600, 300, 'stage1_bg');
     this.live1 = this.add.image(975, 25, 'player1').setDisplaySize(50, 50);
@@ -254,9 +255,23 @@ class MainGame extends Phaser.Scene {
       if (enemy) {
         enemy.setData('numberOfLives', enemy.getData('numberOfLives') - 1);
         playerLaser.destroy();
-        console.log(`${enemy.getData('type')} has lives ${enemy.getData('numberOfLives')}}`);
         if (enemy.getData('numberOfLives') === 0) {
-          enemy.explode(true);
+          if (enemy.getData('type') === 'boss') {
+            this.time.addEvent({
+              delay: 1000,
+              callback: () => {
+                this.cameras.main.fadeOut(10000);
+                enemy.explode(false);
+                game.bgstage1Music.stop();
+                game.scene.remove('Game');
+                game.scene.start('Final');
+              },
+              callbackScope: this,
+              repeat: 0,
+            });
+          } else {
+            enemy.explode(true);
+          }
         }
       }
     });

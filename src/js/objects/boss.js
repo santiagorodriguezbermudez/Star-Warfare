@@ -8,7 +8,7 @@ class Boss extends Entity {
     super(scene, x, y, 'boss', 'boss');
     this.body.collideWorldBounds = true;
     this.play('boss');
-    this.setData('numberOfLives', 5);
+    this.setData('numberOfLives', 1);
     this.shootTimer = scene.time.addEvent({
       delay: 500,
       callback: () => {
