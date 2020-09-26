@@ -54,7 +54,7 @@ class LoadingScene extends Phaser.Scene {
 
     // Download all of the images first
     // Background assets
-    this.load.image('main_menu_bg', 'src/assets/images/main-menu-bg.png');
+    this.load.image('main_menu_bg', 'src/assets/images/main-menu-bg.jpg');
     this.load.image('stage1_bg', 'src/assets/images/stage1.jpg');
     this.load.image('stage2_bg', 'src/assets/images/stage2.jpg');
     this.load.image('stage3_bg', 'src/assets/images/stage3.jpg');

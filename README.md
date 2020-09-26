@@ -165,6 +165,7 @@ Audio is credited to the following authors:
 - Game Over song -> No.4 Piano Journey
 - Final scene photo by Nicolas Lobos from Unplash
 - Game Over scene photo by Mohammad Alizade from Unplash
+- Main Menu scene photo by Guillermo Ferla from Unplash
 
 Special thanks to my Ocicats team at Microverse and my mentor Daniel Santander
 
