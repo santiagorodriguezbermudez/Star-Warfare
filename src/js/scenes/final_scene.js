@@ -29,8 +29,26 @@ class Final extends Phaser.Scene {
       this.zone,
     );
 
-    this.gameBtn = new Btn(this, config.width / 2, config.height / 2 + 100, 'start_btn', 'start_btn_hover', 'Menu');
+    const scoreText = this.add.text(0, 0, `Score: ${this.score}`, {
+      fontSize: '32px',
+      fill: '#fff',
+      backgroundColor: '#1d2d50',
+      align: 'center',
+    });
+
+    const score = localStorage.getItem('score') !== null ? JSON.parse(localStorage.getItem('score')) : 0;
+
+    scoreText.setText(`Score: ${score}`);
+    this.scoreBtn = new Btn(this, config.width / 2, config.height / 2 + 50, 'score_btn', 'score_btn_hover', 'Menu');
+    this.gameBtn = new Btn(this, config.width / 2, config.height / 2 + 125, 'restart_btn', 'restart_btn_hover', 'Menu');
     this.leaderboardBtn = new Btn(this, config.width / 2, config.height / 2 + 200, 'leader_btn', 'leader_btn_hover', 'Leaderboard');
+
+    Phaser.Display.Align.In.Center(
+      scoreText,
+      this.scoreBtn,
+      0,
+      -75,
+    );
 
     this.music = this.sys.game.globals.music;
     this.finalMusic = this.sound.add('final_audio', { volume: 1.5, loop: true });

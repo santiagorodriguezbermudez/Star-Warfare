@@ -15,10 +15,12 @@ class MainGame extends Phaser.Scene {
     this.live4 = null;
     this.live5 = null;
     this.current_stage_bg = null;
+    this.score = 0;
   }
 
   create() {
     const game = this;
+    this.score = 0;
     // Setup the main game layout with the first stage bg image and user lives
     this.current_stage_bg = this.add.image(600, 300, 'stage1_bg');
     this.live1 = this.add.image(975, 25, 'player1').setDisplaySize(50, 50);
@@ -26,6 +28,13 @@ class MainGame extends Phaser.Scene {
     this.live3 = this.add.image(875, 25, 'player1').setDisplaySize(50, 50);
     this.live4 = this.add.image(825, 25, 'player1').setDisplaySize(50, 50);
     this.live5 = this.add.image(772, 25, 'player1').setDisplaySize(50, 50);
+
+    const textScore = this.add.text(25, 25, `Score: ${this.score}`, {
+      fontSize: '32px',
+      fill: '#fff',
+      backgroundColor: '#1d2d50',
+      align: 'center',
+    });
 
     // Setup the initial audio in the background
     this.music = this.sys.game.globals.music;
@@ -216,6 +225,8 @@ class MainGame extends Phaser.Scene {
     //   callback: () => {
     //     if (this.player.getData('numberOfLives') > 0) {
     //       this.cameras.main.fadeOut(3000);
+    //       this.score += 100;
+    //       textScore.setText(`Score: ${this.score}`);
     //       this.createSecondStage();
     //     }
     //   },
@@ -229,6 +240,8 @@ class MainGame extends Phaser.Scene {
     //   callback: () => {
     //     if (this.player.getData('numberOfLives') > 0) {
     //       this.cameras.main.fadeOut(3000);
+    //       this.score += 200;
+    //       textScore.setText(`Score: ${this.score}`);
     //       this.createThirdStage();
     //     }
     //   },
@@ -254,6 +267,8 @@ class MainGame extends Phaser.Scene {
     this.physics.add.collider(this.playerLasers, this.enemies, (playerLaser, enemy) => {
       if (enemy) {
         enemy.setData('numberOfLives', enemy.getData('numberOfLives') - 1);
+        this.score += 5;
+        textScore.setText(`Score: ${this.score}`);
         playerLaser.destroy();
         if (enemy.getData('numberOfLives') === 0) {
           if (enemy.getData('type') === 'boss') {
@@ -263,6 +278,9 @@ class MainGame extends Phaser.Scene {
                 this.cameras.main.fadeOut(10000);
                 enemy.explode(false);
                 game.bgstage1Music.stop();
+                this.score += 250;
+                textScore.setText(`Score: ${this.score}`);
+                this.saveScore();
                 game.scene.start('Final');
               },
               callbackScope: this,
@@ -276,12 +294,13 @@ class MainGame extends Phaser.Scene {
     });
 
     // Collision conditionals
-    // Player Laser and enemies
+    // Enemy Laser and player
     this.physics.add.collider(this.player, this.enemyLasers, (player, enemyLaser) => {
       if (!player.getData('isDead')) {
         this.player.setData('numberOfLives', this.player.getData('numberOfLives') - 1);
         enemyLaser.explode(true);
         if (this.player.getData('numberOfLives') === 0) {
+          this.saveScore();
           player.explode(false);
           player.onDestroy();
         }
@@ -295,6 +314,7 @@ class MainGame extends Phaser.Scene {
         this.player.setData('numberOfLives', this.player.getData('numberOfLives') - 1);
         enemy.explode(true);
         if (this.player.getData('numberOfLives') === 0) {
+          this.saveScore();
           player.explode(false);
           player.onDestroy();
         }
@@ -332,7 +352,7 @@ class MainGame extends Phaser.Scene {
         }
       },
       callbackScope: this,
-      repeat: 1,
+      repeat: 90,
     });
   }
 
@@ -391,6 +411,10 @@ class MainGame extends Phaser.Scene {
 
   getNumberOfEnemies(type) {
     return this.enemies.getChildren().filter(enemy => enemy.getData('type') === type).length;
+  }
+
+  saveScore() {
+    localStorage.setItem('score', JSON.stringify(this.score));
   }
 
   update() {
