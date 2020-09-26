@@ -7,14 +7,15 @@ export default class SubmitScore extends Phaser.Scene {
   }
 
   create() {
-    const submitLabel = this.add.text(15, 15, 'Please enter your user: ', {
+    const submitLabel = this.add.text(15, 250, 'Please enter your user: ', {
       fontSize: '24px',
       fill: '#fff',
       align: 'left',
+      wordwrap: { width: 100 },
     });
 
     const element = this.add.dom(400, 600).createFromCache('form_for_username');
-    element.setPerspective(600);
+    element.setPerspective(800);
     element.addListener('click');
     element.on('click', (event) => {
       if (event.target.name === 'confirm') {

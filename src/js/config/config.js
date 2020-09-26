@@ -9,7 +9,7 @@ export default {
   backgroundColor: 'black',
   parent: 'phaser-container',
   dom: {
-    createContainer: false,
+    createContainer: true,
   },
   physics: {
     default: 'arcade',
