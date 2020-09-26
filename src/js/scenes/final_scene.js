@@ -39,7 +39,7 @@ class Final extends Phaser.Scene {
     const score = localStorage.getItem('score') !== null ? JSON.parse(localStorage.getItem('score')) : 0;
 
     scoreText.setText(`Score: ${score}`);
-    this.scoreBtn = new Btn(this, config.width / 2, config.height / 2 + 50, 'score_btn', 'score_btn_hover', 'Menu');
+    this.scoreBtn = new Btn(this, config.width / 2, config.height / 2 + 50, 'score_btn', 'score_btn_hover', 'SubmitScore');
     this.gameBtn = new Btn(this, config.width / 2, config.height / 2 + 125, 'restart_btn', 'restart_btn_hover', 'Menu');
     this.leaderboardBtn = new Btn(this, config.width / 2, config.height / 2 + 200, 'leader_btn', 'leader_btn_hover', 'Leaderboard');
 

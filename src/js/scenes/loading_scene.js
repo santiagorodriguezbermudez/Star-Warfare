@@ -85,6 +85,7 @@ class LoadingScene extends Phaser.Scene {
     this.load.image('score_btn_hover', 'src/assets/images/score_btn_hover.png');
     this.load.image('restart_btn', 'src/assets/images/restart_btn.png');
     this.load.image('restart_btn_hover', 'src/assets/images/restart_btn_hover.png');
+    this.load.html('form_for_username', 'src/assets/form/form_for_username.html');
 
     // Other animations
     this.load.spritesheet('animationExplosion', 'src/assets/images/explosion.png', {
