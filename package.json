@@ -20,8 +20,10 @@
   },
   "homepage": "https://github.com/santiagorodriguezbermudez/starwarfare#readme",
   "dependencies": {
+    "node-fetch": "^2.6.1",
     "phaser": "^3.24.1",
     "phaser3-rex-plugins": "^1.1.29",
+    "regenerator-runtime": "^0.13.7",
     "webpack-merge": "^5.1.4"
   },
   "devDependencies": {
