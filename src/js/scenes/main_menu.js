@@ -18,7 +18,7 @@ class Menu extends Phaser.Scene {
     this.bgMusic.play();
     this.music.bgMusicPlaying = true;
     this.sys.game.globals.bgMusic = this.bgMusic;
-    const finalAudio = this.scene.get('Final').finalMusic;
+    const finalAudio = this.scene.get('Final').finalMusic || this.scene.get('GameOver').gameOverMusic;
 
     if (finalAudio) {
       finalAudio.stop();

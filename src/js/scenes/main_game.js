@@ -263,7 +263,6 @@ class MainGame extends Phaser.Scene {
                 this.cameras.main.fadeOut(10000);
                 enemy.explode(false);
                 game.bgstage1Music.stop();
-                game.scene.remove('Game');
                 game.scene.start('Final');
               },
               callbackScope: this,

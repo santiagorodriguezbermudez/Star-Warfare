@@ -162,7 +162,9 @@ Audio is credited to the following authors:
 - Menu song -> Epic Journey by Yung Logos
 - Game song, stage 1 -> Chariots of War by Aakash Gandhi
 - Final song -> Soaring High by Biz Baz Studio
+- Game Over song -> No.4 Piano Journey
 - Final scene photo by Nicolas Lobos from Unplash
+- Game Over scene photo by Mohammad Alizade from Unplash
 
 Special thanks to my Ocicats team at Microverse and my mentor Daniel Santander
 

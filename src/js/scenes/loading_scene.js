@@ -60,6 +60,7 @@ class LoadingScene extends Phaser.Scene {
     this.load.image('stage3_bg', 'src/assets/images/stage3.jpg');
     this.load.image('stage4_bg', 'src/assets/images/stage4.jpg');
     this.load.image('final_bg', 'src/assets/images/final_scene.jpg');
+    this.load.image('game_over_bg', 'src/assets/images/game_over_bg.jpg');
 
     // Player assets
     this.load.image('player_laser', 'src/assets/images/player_laser.png');
@@ -92,6 +93,7 @@ class LoadingScene extends Phaser.Scene {
     this.load.audio('menu_audio', ['src/assets/audio/menu_audio.mp3']);
     this.load.audio('stage1_audio', ['src/assets/audio/stage1_audio.mp3']);
     this.load.audio('final_audio', ['src/assets/audio/final_audio.mp3']);
+    this.load.audio('game_over_audio', ['src/assets/audio/game_over.mp3']);
 
     // Dowload audios
     // Player Audios

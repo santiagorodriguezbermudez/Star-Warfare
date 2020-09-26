@@ -35,8 +35,16 @@ class Player extends Entity {
       delay: 1000,
       callback: () => {
         if (this.getData('numberOfLives') === 0) {
-          console.log('Game Over');
-          // Call the game over scene
+          this.scene.time.addEvent({
+            delay: 1000,
+            callback: () => {
+              this.scene.cameras.main.fadeOut(10000);
+              this.scene.bgstage1Music.stop();
+              this.scene.scene.start('GameOver');
+            },
+            callbackScope: this,
+            repeat: 0,
+          });
         } else {
           const currentLives = this.getData('numberOfLives');
           this.setData('numberOfLives', currentLives - 1);

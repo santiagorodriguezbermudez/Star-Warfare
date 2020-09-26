@@ -5,6 +5,7 @@ import MainMenu from './main_menu';
 import Introduction from './intro';
 import MainGame from './main_game';
 import Final from './final_scene';
+import GameOver from './game_over';
 
 
 class SceneController extends Phaser.Scene {
@@ -17,9 +18,9 @@ class SceneController extends Phaser.Scene {
     this.scene.add('Load', LoadingScene);
     this.scene.add('Menu', MainMenu);
     this.scene.add('Introduction', Introduction);
-    this.scene.add('Game', MainGame);
     this.scene.add('Final', Final);
-
+    this.scene.add('GameOver', GameOver);
+    this.scene.add('Game', MainGame);
     this.scene.start('Start');
   }
 }
