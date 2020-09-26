@@ -7,6 +7,7 @@ import MainGame from './main_game';
 import Final from './final_scene';
 import GameOver from './game_over';
 import SubmitScore from './submit_score';
+import Leaderboard from './leaderboard';
 
 
 class SceneController extends Phaser.Scene {
@@ -23,6 +24,7 @@ class SceneController extends Phaser.Scene {
     this.scene.add('GameOver', GameOver);
     this.scene.add('Game', MainGame);
     this.scene.add('SubmitScore', SubmitScore);
+    this.scene.add('Leaderboard', Leaderboard);
     this.scene.start('Start');
   }
 }

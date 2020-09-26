@@ -1,10 +1,10 @@
 import 'regenerator-runtime';
 
+
 const fetch = require('node-fetch');
 
-const api = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/h0z4c9vjaT6T11L51p9A/scores/';
-
 const ApiModule = (() => {
+  const api = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/h0z4c9vjaT6T11L51p9A/scores/';
   const writeScore = async (user, score) => {
     const body = JSON.stringify({ user, score });
     const data = {

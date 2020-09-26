@@ -86,6 +86,9 @@ class LoadingScene extends Phaser.Scene {
     this.load.image('restart_btn', 'src/assets/images/restart_btn.png');
     this.load.image('restart_btn_hover', 'src/assets/images/restart_btn_hover.png');
     this.load.html('form_for_username', 'src/assets/form/form_for_username.html');
+    this.load.bitmapFont('arcade', 'src/assets/font/arcade.png', 'src/assets/font/arcade.xml');
+    this.load.image('menu_btn', 'src/assets/images/menu_btn.png');
+    this.load.image('menu_btn_hover', 'src/assets/images/menu_btn_hover.png');
 
     // Other animations
     this.load.spritesheet('animationExplosion', 'src/assets/images/explosion.png', {
@@ -99,6 +102,7 @@ class LoadingScene extends Phaser.Scene {
     this.load.audio('stage1_audio', ['src/assets/audio/stage1_audio.mp3']);
     this.load.audio('final_audio', ['src/assets/audio/final_audio.mp3']);
     this.load.audio('game_over_audio', ['src/assets/audio/game_over.mp3']);
+    this.load.audio('leaders_audio', ['src/assets/audio/leaders.mp3']);
 
     // Dowload audios
     // Player Audios
