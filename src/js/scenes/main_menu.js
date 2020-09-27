@@ -19,10 +19,20 @@ class Menu extends Phaser.Scene {
     this.bgMusic.play();
     this.music.bgMusicPlaying = true;
     this.sys.game.globals.bgMusic = this.bgMusic;
-    const finalAudio = this.scene.get('Final').finalMusic || this.scene.get('GameOver').gameOverMusic || this.scene.get('Leaderboard').leadersMusic;
+    const finalAudio = this.scene.get('Final').finalMusic;
+    const gameOverAudio = this.scene.get('GameOver').gameOverMusic;
+    const leaderAudio = this.scene.get('Leaderboard').leadersMusic;
 
     if (finalAudio) {
       finalAudio.stop();
+    }
+
+    if (gameOverAudio) {
+      gameOverAudio.stop();
+    }
+
+    if (leaderAudio) {
+      leaderAudio.stop();
     }
   }
 }

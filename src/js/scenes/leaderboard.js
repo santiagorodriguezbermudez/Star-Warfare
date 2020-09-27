@@ -21,7 +21,7 @@ class Leaderboard extends Phaser.Scene {
     }
     this.cameras.main.fadeIn(10000);
     this.cameras.main.setBackgroundColor('#fff');
-    this.menuButton = new Btn(this, 400, 500, 'menu_btn', 'menu_btn_hover', 'Menu');
+    this.menuButton = new Btn(this, 500, 550, 'menu_btn', 'menu_btn_hover', 'Menu');
     this.add.bitmapText(100, 110, 'arcade', 'RANK  SCORE   NAME').setTint(0xffffff);
     const loadMessage = this.add.bitmapText(100, 100, 'arcade', 'Fetching highest scores...').setTint(0xff0000);
     ApiModule.readScore().then((scores) => {
