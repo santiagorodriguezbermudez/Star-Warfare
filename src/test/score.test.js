@@ -6,7 +6,7 @@ import '@babel/polyfill';
 test('Gets the names of the score and an object', async () => {
   const scores = await getScores();
 
-  expect(scores.user).toEqual('TestUsername');
+  expect(scores.user).toEqual('testUsername');
   expect(typeof getScores()).toBe('object');
 });
 

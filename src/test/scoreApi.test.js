@@ -1,6 +1,8 @@
 import Req from './mocks/apiReqMock';
 import saveScore from './mocks/apiFetchMock';
 import '@babel/polyfill';
+import 'regenerator-runtime';
+
 
 test('Test to see if the input for the API works', () => {
   const score = saveScore('testUserNameScore', 1000);
@@ -10,7 +12,7 @@ test('Test to see if the input for the API works', () => {
 });
 
 test('Test to see if there is any data coming from the API', () => {
-  const api = Req.checkData();
+  const api = Req.getData();
   api.then(result => {
     expect(result[0].user).toBe('testUserNameScore');
   });
