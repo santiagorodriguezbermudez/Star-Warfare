@@ -42,7 +42,7 @@ Do you think you can lead your way into Mars?
 
 ### Main Objective
 
-Survive as long as possible and collect as many resources as possible. Try to get to mars at all costs.
+Survive as long as possible and destroy as many obstacles / enemies as you can. Try to get to mars at all costs.
 
 ### How to play
 
@@ -50,50 +50,46 @@ Survive as long as possible and collect as many resources as possible. Try to ge
 - Accelerate by pressing the 'up' arrow on your keyboard.
 - Slow down by pessing the 'down' arrow on your keyboard.
 - Shoot your power gun by pressing the 'space' bar on your keyword
-- Collect supplies in order to increase your score for the return mission.
+- Destroy obstacles or enemies in order to increase your score for the return mission.
 - Avoid all obstacles to keep your team alive.
 
 #### Marsian (The Spaceship )
 
-![Marsian]()
+![Marsian](./src/assets/images/animation_player/1.png)
 
 - Marsian was build with the latest technology.
 
 #### Enemies
 
-![Space storm]()
+#### Space Garbage turn into fire
+
+![Space storm](./src/assets/images/animation_garbage/garbage_0.png)
 
 - Storms are the worst. You must travel through them avoiding any mortal collision.
 
-![Asteroids]()
+#### Asteroids frontiers
+
+![Asteroids](./src/assets/images/asteroids/asteroid1.png)
 
 - Space is full of asteroids. Avoid them at all cost. 
 
-![UFO]()
+#### Ufo
+
+![UFO](./src/assets/images/animation_ufo/1.png)
 
 - UFO's have been detected. They seem harmful and will try to sabotage this mission as they want to conquer Mars as well.
 
-![Magnetic bugs]()
+#### Magnet
+
+![Magnetic bugs](./src/assets/images/magnet/magnet.png)
 
 - Human garbage send into space has muted into magnetic bugs. These will feel atracted to the spaceship and make your spacecraft heavier and more prompt to collide with other space items. 
 
-![Human garbage]()
+#### Trooper
 
-- Right after take off, Earth orbit is full of garbage. You must skip this and avoid any mortal collision.
+![The Martian Troppers](./src/assets/images/animation_boss/1.png)
 
-#### Resources
-
-![Fuel capsules]()
-
-- We don't know why does the fuel capsules have stayed within the Marsian route towards Mars, but we must take advantage of it. Collect as much as possible so we can have enough resources for the return trip.
-
-![water]()
-
-- Our water supplies are low, because our supply machine within the spaceship has broken. Collect water along the way so you can make it back home.
-
-![medical aid]()
-
-- Collect medical aid equipment that you can use in case you have an emergency.
+- Some UFO leader has been detected, guarding Mars Orbit. They will try to destroy our ship at all cost.
 
 ## Demo
 
@@ -117,19 +113,28 @@ Survive as long as possible and collect as many resources as possible. Try to ge
 
 - **Day 3**
 **Scene Development**
- - Implement main menu
- - Implemente main game
+  - Implement main menu (Done. Finished on Day 4)
+  - Implemente main game (Done. Finished on Day 4)
 
 - **Day 4**
 **Game Development**
- - Implement leaderboard menu
- - Implement menu
+  - Implement leaderboard menu (Done. Finished on day 5)
+  - Implement menu (Done)
 
 - **Day 5**
 **Deployment**
-- Run tests
-- Deploy to netlify
-- Evaluate extra functionalities
+  - Run tests (Done)
+  - Deploy to netlify (Done)
+
+### Retrospective:
+
+After developing the game and looking back at the initial plan, conceived on the second day these are some reflections about my development.
+
+What went wrong?
+Overall, I assume Phaser would be easier. However, it's documentation is confusing (mixed between different versions) and not cohesive enough. This meant a lot of time was invested in googling how to work around specific things, such as animation and tweens. This was not easy at all and very time consuming. The provided examples and tutorial didn't seem enough. 
+
+What went well?
+Organizing my JS files seemed good for a quick MVP game. However, the main game file can be decoupled for future versions as the game is developed into further features. 
 
 ## Built With
 - Javascript
@@ -144,11 +149,8 @@ Survive as long as possible and collect as many resources as possible. Try to ge
 
 ## Testing
 
-- Run tests by running: npm run test on your CL.
+- Run tests by running: `npm test` on your CL.
 
-## Design Credits
-
-- To be determined
 
 ## Contributing
 
@@ -167,7 +169,11 @@ Audio is credited to the following authors:
 - Game Over scene photo by Mohammad Alizade from Unplash
 - Main Menu scene photo by Guillermo Ferla from Unplash
 
-Special thanks to my Ocicats team at Microverse and my mentor Daniel Santander
+Special thanks to Microverse community:
+- Ocicats team
+- Daniel Santander
+- Murilo Roque
+- Jose Roberto Perez Jimenez
 
 ## Show your support
 
@@ -182,4 +188,4 @@ Give a ⭐️ if you like this project!
 
 ## License
 
-TBD
+MIT standard license.
