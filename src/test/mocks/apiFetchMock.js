@@ -16,7 +16,7 @@ const saveScore = async (name, score) => {
     });
     if (resp.ok) {
       await resp.json();
-      return 'Everything is working just fine!';
+      return '200';
     }
     throw new Error('Request Failed');
   } catch (error) {
