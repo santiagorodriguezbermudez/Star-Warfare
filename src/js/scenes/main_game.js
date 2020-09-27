@@ -167,91 +167,91 @@ class MainGame extends Phaser.Scene {
 
     // Creates the events that will trigger the appearance of new enemies
     // First wave of garbage
-    // this.time.addEvent({
-    //   delay: 1500,
-    //   callback: () => {
-    //     const enemy = new Garbage(
-    //       this,
-    //       Phaser.Math.Between(0, this.game.config.width),
-    //       0,
-    //     );
-    //     enemy.body.setSize(enemy.body.width, enemy.body.height);
-    //     enemy.setScale(Phaser.Math.Between(4, 7) * 0.1);
-    //     this.enemies.add(enemy);
-    //   },
-    //   callbackScope: this,
-    //   repeat: 30,
-    // });
+    this.time.addEvent({
+      delay: 500,
+      callback: () => {
+        const enemy = new Garbage(
+          this,
+          Phaser.Math.Between(0, this.game.config.width),
+          0,
+        );
+        enemy.body.setSize(enemy.body.width, enemy.body.height);
+        enemy.setScale(Phaser.Math.Between(4, 7) * 0.1);
+        this.enemies.add(enemy);
+      },
+      callbackScope: this,
+      repeat: 30,
+    });
 
     // Second wave of garbage
-    // this.time.addEvent({
-    //   delay: 1000,
-    //   callback: () => {
-    //     const enemy = new Garbage(
-    //       this,
-    //       Phaser.Math.Between(0, this.game.config.width),
-    //       0,
-    //     );
+    this.time.addEvent({
+      delay: 500,
+      callback: () => {
+        const enemy = new Garbage(
+          this,
+          Phaser.Math.Between(0, this.game.config.width),
+          0,
+        );
 
-    //     enemy.body.setSize(enemy.body.width, enemy.body.height);
-    //     enemy.setScale(Phaser.Math.Between(4, 7) * 0.1);
-    //     this.enemies.add(enemy);
-    //   },
-    //   callbackScope: this,
-    //   repeat: 30,
-    // });
+        enemy.body.setSize(enemy.body.width, enemy.body.height);
+        enemy.setScale(Phaser.Math.Between(4, 7) * 0.1);
+        this.enemies.add(enemy);
+      },
+      callbackScope: this,
+      repeat: 30,
+    });
 
     // Third wave of garbage
-    // this.time.addEvent({
-    //   delay: 500,
-    //   callback: () => {
-    //     const enemy = new Garbage(
-    //       this,
-    //       Phaser.Math.Between(0, this.game.config.width),
-    //       0,
-    //     );
+    this.time.addEvent({
+      delay: 500,
+      callback: () => {
+        const enemy = new Garbage(
+          this,
+          Phaser.Math.Between(0, this.game.config.width),
+          0,
+        );
 
-    //     enemy.body.setSize(enemy.body.width, enemy.body.height);
-    //     enemy.setScale(Phaser.Math.Between(5, 8) * 0.2);
-    //     this.enemies.add(enemy);
-    //   },
-    //   callbackScope: this,
-    //   repeat: 60,
-    // });
+        enemy.body.setSize(enemy.body.width, enemy.body.height);
+        enemy.setScale(Phaser.Math.Between(5, 8) * 0.2);
+        this.enemies.add(enemy);
+      },
+      callbackScope: this,
+      repeat: 60,
+    });
 
     // Change of scenario to second scenario
-    // this.time.addEvent({
-    //   delay: 3000,
-    //   callback: () => {
-    //     if (this.player.getData('numberOfLives') > 0) {
-    //       this.cameras.main.fadeOut(3000);
-    //       this.score += 100;
-    //       textScore.setText(`Score: ${this.score}`);
-    //       this.createSecondStage();
-    //     }
-    //   },
-    //   callbackScope: this,
-    //   repeat: 0,
-    // });
+    this.time.addEvent({
+      delay: 40000,
+      callback: () => {
+        if (this.player.getData('numberOfLives') > 0) {
+          this.cameras.main.fadeOut(3000);
+          this.score += 100;
+          textScore.setText(`Score: ${this.score}`);
+          this.createSecondStage();
+        }
+      },
+      callbackScope: this,
+      repeat: 0,
+    });
 
     // Change of scenario to ufo scenario
-    // this.time.addEvent({
-    //   delay: 3000,
-    //   callback: () => {
-    //     if (this.player.getData('numberOfLives') > 0) {
-    //       this.cameras.main.fadeOut(3000);
-    //       this.score += 200;
-    //       textScore.setText(`Score: ${this.score}`);
-    //       this.createThirdStage();
-    //     }
-    //   },
-    //   callbackScope: this,
-    //   repeat: 0,
-    // });
+    this.time.addEvent({
+      delay: 100000,
+      callback: () => {
+        if (this.player.getData('numberOfLives') > 0) {
+          this.cameras.main.fadeOut(3000);
+          this.score += 200;
+          textScore.setText(`Score: ${this.score}`);
+          this.createThirdStage();
+        }
+      },
+      callbackScope: this,
+      repeat: 0,
+    });
 
     // Change of scenario to boss scenario
     this.time.addEvent({
-      delay: 3000,
+      delay: 140000,
       callback: () => {
         if (this.player.getData('numberOfLives') > 0) {
           this.cameras.main.fadeOut(3000);
@@ -330,7 +330,7 @@ class MainGame extends Phaser.Scene {
 
     // Second type of enemies, the asteroids
     this.time.addEvent({
-      delay: 400,
+      delay: 600,
       callback: () => {
         const startWall = Phaser.Math.Between(0, 250);
         const numberOfAsteroids = Phaser.Math.Between(0, 35);
@@ -364,7 +364,7 @@ class MainGame extends Phaser.Scene {
 
     // Third type of enemies, UFO + magnets
     this.time.addEvent({
-      delay: 500,
+      delay: 1000,
       callback: () => {
         const ufo = new Ufo(
           this,
@@ -394,7 +394,7 @@ class MainGame extends Phaser.Scene {
 
     // Third type of enemies, UFO + magnets
     this.time.addEvent({
-      delay: 2000,
+      delay: 3000,
       callback: () => {
         const boss = new Boss(
           this,
