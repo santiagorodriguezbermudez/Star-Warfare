@@ -16,7 +16,7 @@
     "arrow-parens": "off"
   },
   "ignorePatterns": [
-    "./dist/",
+    "dist/",
     "build/"
   ]
 }
