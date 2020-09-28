@@ -5,11 +5,18 @@ class LoadingScene extends Phaser.Scene {
     super('Load');
   }
 
+  create() {
+    this.add.image(500, 300, 'start_logo');
+  }
+
   preload() {
+    // Create first logo of the game for loading time showup
+    this.load.image('start_logo', 'src/assets/images/start_logo.png');
+
     const progressBar = this.add.graphics();
     const progressBox = this.add.graphics();
-    progressBox.fillStyle(0xff9900, 1);
-    progressBox.fillRect(240, 270, 320, 50);
+    progressBox.fillStyle(0xff9900, 0.8);
+    progressBox.fillRect(250, 270, 500, 50);
 
     const { width } = this.cameras.main;
     const { height } = this.cameras.main;
@@ -19,7 +26,7 @@ class LoadingScene extends Phaser.Scene {
       text: 'Loading...',
       style: {
         font: '20px monospace',
-        fill: '##FF8C00',
+        fill: '#FF8C00',
       },
     });
     loadingText.setOrigin(0.5, 0.5);
@@ -35,11 +42,23 @@ class LoadingScene extends Phaser.Scene {
     });
     percentText.setOrigin(0.5, 0.5);
 
+    const assetText = this.make.text({
+      x: width / 2,
+      y: height / 2 + 50,
+      text: '',
+      style: {
+        font: '18px monospace',
+        fill: '#FF8C00',
+      },
+    });
+
+    assetText.setOrigin(0.5, 0.5);
+
     this.load.on('progress', (value) => {
       percentText.setText(`${parseInt(value * 100, 10)}%`);
       progressBar.clear();
       progressBar.fillStyle(0xff9900, 1);
-      progressBar.fillRect(250, 280, 300 * value, 30);
+      progressBar.fillRect(255, 280, 490 * value, 30);
     });
 
     this.load.on('complete', () => {
@@ -50,7 +69,9 @@ class LoadingScene extends Phaser.Scene {
       this.ready();
     });
 
-    this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
+    this.load.on('fileprogress', (file) => {
+      assetText.setText(`Loading asset: ${file.key}`);
+    });
 
     // Download all of the images first
     // Background assets
@@ -76,7 +97,6 @@ class LoadingScene extends Phaser.Scene {
     [1, 2].forEach((el) => this.load.image(`mine${el}`, `src/assets/images/animation_mines/${el}.png`));
 
     // Game assets
-    this.load.image('start_logo', 'src/assets/images/start_logo.png');
     this.load.image('start_btn', 'src/assets/images/start_btn.png');
     this.load.image('start_btn_hover', 'src/assets/images/start_btn_hover.png');
     this.load.image('leader_btn', 'src/assets/images/leader_btn.png');
