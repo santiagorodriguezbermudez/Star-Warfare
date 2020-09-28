@@ -8,6 +8,7 @@ class Introduction extends Phaser.Scene {
 
   create() {
     // Skips the intro in case the user wants to continue
+    this.arrayTimeoutsId = [];
     this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     this.skipIntro = this.add.text(10, 10, 'Press Space to skip', { fontSize: '10px', fill: '#fff' });
     this.cameras.main.setBackgroundColor('#000');
@@ -26,8 +27,8 @@ class Introduction extends Phaser.Scene {
     });
 
     storyArray.forEach((story, i) => {
-      setTimeout(() => {
-        this.intro.text = story;
+      this.setTransitionTimeoutID = setTimeout(() => {
+        this.intro.setText(story);
         this.zone = this.add.zone(config.width / 2, config.height / 2, config.width, config.height);
 
         Phaser.Display.Align.In.Center(
@@ -41,12 +42,15 @@ class Introduction extends Phaser.Scene {
 
         this.cameras.main.fadeIn(10000);
       }, i * 15000);
+      this.arrayTimeoutsId.push(this.setTransitionTimeoutID);
     });
   }
 
   update() {
     // Creates the update command in case the user wants to skip the introduction.
     if (this.keySpace.isDown) {
+      this.arrayTimeoutsId.forEach((timeout) => clearTimeout(timeout));
+      console.log(this.arrayTimeoutsId);
       this.scene.start('Game');
     }
   }
