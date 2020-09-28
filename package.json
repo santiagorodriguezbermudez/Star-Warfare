@@ -4,9 +4,10 @@
   "description": "Arcade game developed with JavaScript and Phaser 3",
   "main": "index.js",
   "scripts": {
+    "build": "webpack --config webpack/prod.js",
+    "start": "webpack-dev-server --config webpack/base.js --open",
     "test": "jest",
-    "test_watch": "jest --watch",
-    "watch": "webpack --watch"
+    "test_watch": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -17,5 +18,46 @@
   "bugs": {
     "url": "https://github.com/santiagorodriguezbermudez/starwarfare/issues"
   },
-  "homepage": "https://github.com/santiagorodriguezbermudez/starwarfare#readme"
+  "homepage": "https://github.com/santiagorodriguezbermudez/starwarfare#readme",
+  "dependencies": {
+    "@babel/polyfill": "^7.11.5",
+    "node-fetch": "^2.6.1",
+    "phaser": "^3.24.1",
+    "phaser3-rex-plugins": "^1.1.29",
+    "regenerator-runtime": "^0.13.7",
+    "webpack-merge": "^5.1.4",
+    "webpack": "^4.44.2",
+    "html-webpack-plugin": "^4.5.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "terser-webpack-plugin": "^4.2.2",
+    "copy-webpack-plugin": "^6.1.1"
+  },
+  "jest": {
+    "setupFiles": [
+      "jest-canvas-mock"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-transform-modules-commonjs": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^26.1.0",
+    "babel-loader": "^8.1.0",
+    "babel-preset-env": "^1.7.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.1.1",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "file-loader": "^6.1.0",
+    "html-webpack-plugin": "^4.5.0",
+    "jest": "^26.4.2",
+    "jest-canvas-mock": "^2.2.0",
+    "terser-webpack-plugin": "^4.2.2",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
 }
