@@ -1,7 +1,10 @@
 # STAR WARFARE
 A JavaScript space shooting game built with Phaser 3.
 
-![screenshot]()
+![screenshot](./src/assets/images/screenshot.png)
+![screenshot2](./src/assets/images/screenshot2.png)
+![screenshot3](./src/assets/images/screenshot3.png)
+![screenshot4](./src/assets/images/screenshot4.png)
 
 ## Table of Contents
 
@@ -93,7 +96,7 @@ Survive as long as possible and destroy as many obstacles / enemies as you can. 
 
 ## Demo
 
-[Live Demo]()
+[Live Demo](https://starwarfare.netlify.app/)
 
 ## Game Development Stages
 
